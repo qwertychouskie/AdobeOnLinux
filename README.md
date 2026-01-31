@@ -25,3 +25,8 @@
 | Audition 2020           | ❌ [Crashes on launch](https://bugs.winehq.org/show_bug.cgi?id=50814), but [an applicable PR was just opened](https://gitlab.winehq.org/wine/wine/-/merge_requests/9961) |
 
 More testing needed/welcomed!
+
+## Winetricks upstream PRs
+
+- [ ] [w_set_app_winver: Fix issue with app names starting with "n" (#2466)](https://github.com/Winetricks/winetricks/pull/2466)
+- [ ] [webview2: New verb (#2467)](https://github.com/Winetricks/winetricks/pull/2467)
