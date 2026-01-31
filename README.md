@@ -1,7 +1,14 @@
 # Adobe Creative Cloud on Linux (extremely experimental!)
 
+A commmunity effort to run the Adobe Creative Cloud suite of applications on Linux systems.  Everything here is **extremely experimental**, expect things to be rather broken for the time being.
+
+> [!CAUTION]
+> The goal of this project is to run unmodified, unhacked Adobe software on Linux, via industry-standard compatibility layers (Wine/Proton/etc).  We will **not** support anyone looking to run pirated versions of Adobe software.  Yes, we know people have been able to run modified versions of some of the Creative Cloud applications on Linux for years; that is **not** what this project is about.
+
+## Basic installation steps
+
 1. Install Wine Staging 11.1 or later
-3. Download the Winetricks script below
+3. Download the Winetricks script from this repository
 4. Run with: `WINEPREFIX=~/.local/share/wineprefixes/adobe-creative-cloud /path/to/downloaded/winetricks -q adobe_cc`
 
 ## Known issues
@@ -30,3 +37,4 @@ More testing needed/welcomed!
 
 - [ ] [w_set_app_winver: Fix issue with app names starting with "n" (#2466)](https://github.com/Winetricks/winetricks/pull/2466)
 - [ ] [webview2: New verb (#2467)](https://github.com/Winetricks/winetricks/pull/2467)
+- [ ] TODO: Open draft `dobbe_cc` verb PR
