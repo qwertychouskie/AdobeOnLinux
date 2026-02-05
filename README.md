@@ -17,6 +17,7 @@ A commmunity effort to run the Adobe Creative Cloud suite of applications on Lin
   - Patches included: https://gitlab.winehq.org/wine/wine-staging/-/commit/8090aa9cbe1939b2ab9c44098ea51c8abc913a59
   - All patches available: https://github.com/ValveSoftware/wine/compare/bleeding-edge...PhialsBasement:wine-adobe-installers:bleeding-edge
   - TODO: Make custom build based off Staging 11.1 but including all the Adobe patches?  Though perhaps Staging 11.2 will include all of them.
+    - It looks like Wine is including more of the patches now, see [Wine upstream PRs/fixes](https://github.com/qwertychouskie/AdobeOnLinux/edit/main/README.md#wine-upstream-prsfixes)
 - Mouse cursor is invisible in initial installer window: https://bugs.winehq.org/show_bug.cgi?id=58922
 - Sometimes you need to open the Creative Cloud application twice for it to launch without crashing/closing
 - The installation script installes a partially-broken native msxml3.  The partially-brokenness is actually needed for the Creative Cloud app to launch without hitting https://bugs.winehq.org/show_bug.cgi?id=57980 but will cause some Creative Cloud applications to fail to launch/operate correctly.
@@ -32,6 +33,12 @@ A commmunity effort to run the Adobe Creative Cloud suite of applications on Lin
 | Audition 2020           | ❌ [Crashes on launch](https://bugs.winehq.org/show_bug.cgi?id=50814), but [an applicable PR was just opened](https://gitlab.winehq.org/wine/wine/-/merge_requests/9961) |
 
 More testing needed/welcomed!
+
+## Wine upstream PRs/fixes
+
+- [x] [mshtml: Update element event handlers when the corresponding attribute value changes](https://gitlab.winehq.org/wine/wine/-/merge_requests/9976)
+- [x] [jscript: Fix DISPATCH_METHOD | DISPATCH_PROPERTYGET in ES5+ modes](https://gitlab.winehq.org/wine/wine/-/merge_requests/10004)
+- [ ] [mshtml/msxml3: Add XMLSerializer, embedded XML declaration handling](https://gitlab.winehq.org/wine/wine/-/merge_requests/10025)
 
 ## Winetricks upstream PRs
 
