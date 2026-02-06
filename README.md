@@ -36,12 +36,12 @@ More testing needed/welcomed!
 
 ## Wine upstream PRs/fixes
 
-- [x] [mshtml: Update element event handlers when the corresponding attribute value changes](https://gitlab.winehq.org/wine/wine/-/merge_requests/9976)
-- [x] [jscript: Fix DISPATCH_METHOD | DISPATCH_PROPERTYGET in ES5+ modes](https://gitlab.winehq.org/wine/wine/-/merge_requests/10004)
+- [x] [mshtml: Update element event handlers when the corresponding attribute value changes](https://gitlab.winehq.org/wine/wine/-/merge_requests/9976) (released in Wine Devel 11.2)
+- [x] [jscript: Fix DISPATCH_METHOD | DISPATCH_PROPERTYGET in ES5+ modes](https://gitlab.winehq.org/wine/wine/-/merge_requests/10004) (released in Wine Devel 11.2)
 - [ ] [mshtml/msxml3: Add XMLSerializer, embedded XML declaration handling](https://gitlab.winehq.org/wine/wine/-/merge_requests/10025)
 
 ## Winetricks upstream PRs
 
 - [ ] [w_set_app_winver: Fix issue with app names starting with "n" (#2466)](https://github.com/Winetricks/winetricks/pull/2466)
 - [ ] [webview2: New verb (#2467)](https://github.com/Winetricks/winetricks/pull/2467)
-- [ ] TODO: Open draft `dobbe_cc` verb PR
+- [ ] TODO: Open draft `dobbe_cc` verb PR (perhaps after SetThreadpoolTimerEx is implemented?  Would avoid a ton of the weirdness needed to make things semi-functional)
