@@ -21,12 +21,12 @@ A commmunity effort to run the Adobe Creative Cloud suite of applications on Lin
 
 ## Individual app test results
 
-| Application             | Test result |
-| ----------------------- | ----------- |
-| UXP Developer Tools     | ✅ Appears to run as expected |
-| Character Animator 2026 | ❌ [Crashes on launch](https://bugs.winehq.org/show_bug.cgi?id=59311) |
-| Express Photos          | ❌ [Installation fails](https://bugs.winehq.org/show_bug.cgi?id=59278) |
-| Audition 2020           | ❌ [Crashes on launch](https://bugs.winehq.org/show_bug.cgi?id=50814), but [an applicable PR was merged](https://gitlab.winehq.org/wine/wine/-/merge_requests/9961) and should be in the Wine Devel 11.3 release |
+| Application                                 | Installs?                 | Runs? |
+| ------------------------------------------- | ------------------------- | ----- |
+| UXP Developer Tools                         | ✅ Yes                    | ✅ Yes, appears to run as expected |
+| Character Animator 2026                     | ✅ Yes                    | ❌ No, [Crashes on launch](https://bugs.winehq.org/show_bug.cgi?id=59311) |
+| [Express Photos](EXPRESS_PHOTOS.md)         | ⚠️ No, but has workaround | ❌ No, requires WinUI support, see linked page for details |
+| Audition 2020                               | ⚠️ Untested               | ❌ No, [Crashes on launch](https://bugs.winehq.org/show_bug.cgi?id=50814), but [an applicable PR was merged](https://gitlab.winehq.org/wine/wine/-/merge_requests/9961) and should be in the Wine Devel 11.3 release |
 
 More testing needed/welcomed!
 
