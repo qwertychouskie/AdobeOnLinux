@@ -13778,8 +13778,8 @@ load_webview2()
     # https://developer.microsoft.com/en-us/microsoft-edge/webview2/
     # Evergreen Bootstrapper - downloads and installs appropriate architecture
     # https://go.microsoft.com/fwlink/p/?LinkId=2124703
-    # 2026/01/19: 6a2f2492ea642e3965ce2421e257da53ff18c5dee08df33c84c061ae47a8a302
-    w_download https://go.microsoft.com/fwlink/p/?LinkId=2124703 6a2f2492ea642e3965ce2421e257da53ff18c5dee08df33c84c061ae47a8a302 MicrosoftEdgeWebview2Setup.exe
+    # Skip checksum verification since this file updates frequently
+    w_download https://go.microsoft.com/fwlink/p/?LinkId=2124703 "" MicrosoftEdgeWebview2Setup.exe
 
     w_try_cd "${W_CACHE}"/"${W_PACKAGE}"
     w_try_ms_installer "${WINE}" MicrosoftEdgeWebview2Setup.exe ${W_OPT_UNATTENDED:+/silent /install}
@@ -13793,10 +13793,11 @@ REGEDIT4
 
 _EOF_
         w_try_regedit "${W_TMP_WIN}"\\edgeupdate-service.reg
+
         # Kill the running service since it was started during installation
         # Use pgrep -f to match full command line since process name is >15 chars
         # shellcheck disable=SC2046,SC2086
-        sleep 5
+        sleep 5 # Make sure we don't accidentally kill any other MicrosoftEdgeUpdate instance (shouldn't be needed, but better safe than sorry)
         kill -s KILL $(pgrep -f "MicrosoftEdgeUpdate.exe /c") 2>/dev/null || true
     fi
 
