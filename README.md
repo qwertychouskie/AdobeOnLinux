@@ -17,7 +17,7 @@ A commmunity effort to run the Adobe Creative Cloud suite of applications on Lin
 - Mouse cursor is invisible in initial installer window: https://bugs.winehq.org/show_bug.cgi?id=58922
 - Sometimes you need to open the Creative Cloud application twice for it to launch without crashing/closing
 - The installation script installes a partially-broken native msxml3.  The partially-brokenness is actually needed for the Creative Cloud app to launch without hitting https://bugs.winehq.org/show_bug.cgi?id=57980 but will cause some Creative Cloud applications to fail to launch/operate correctly.
-  - A potential workaround is to launch the Creative Cloud app, then once it loads, run `WINEPREFIX=~/.local/share/wineprefixes/adobe-creative-cloud winecfg` and set `msxml3` to `builtin`.  Horrible hack, but until the wine bug is fixed, I don't know of a better way.
+  - A workaround is to launch the Creative Cloud app, then once it loads, run `WINEPREFIX=~/.local/share/wineprefixes/adobe-creative-cloud winecfg` and set `msxml3` to `builtin`.  Horrible hack, but until the wine bug is fixed, I don't know of a better way.
 
 ## Individual app test results
 
@@ -26,7 +26,7 @@ A commmunity effort to run the Adobe Creative Cloud suite of applications on Lin
 | UXP Developer Tools     | ✅ Appears to run as expected |
 | Character Animator 2026 | ❌ [Crashes on launch](https://bugs.winehq.org/show_bug.cgi?id=59311) |
 | Express Photos          | ❌ [Installation fails](https://bugs.winehq.org/show_bug.cgi?id=59278) |
-| Audition 2020           | ❌ [Crashes on launch](https://bugs.winehq.org/show_bug.cgi?id=50814), but [an applicable PR was merged](https://gitlab.winehq.org/wine/wine/-/merge_requests/9961) and should be in the Wine 11.3 release |
+| Audition 2020           | ❌ [Crashes on launch](https://bugs.winehq.org/show_bug.cgi?id=50814), but [an applicable PR was merged](https://gitlab.winehq.org/wine/wine/-/merge_requests/9961) and should be in the Wine Devel 11.3 release |
 
 More testing needed/welcomed!
 
@@ -35,10 +35,10 @@ More testing needed/welcomed!
 - [x] [mshtml: Update element event handlers when the corresponding attribute value changes](https://gitlab.winehq.org/wine/wine/-/merge_requests/9976) (released in Wine Devel 11.2)
 - [x] [jscript: Fix DISPATCH_METHOD | DISPATCH_PROPERTYGET in ES5+ modes](https://gitlab.winehq.org/wine/wine/-/merge_requests/10004) (released in Wine Devel 11.2)
 - [ ] [mshtml/msxml3: Add XMLSerializer, embedded XML declaration handling](https://gitlab.winehq.org/wine/wine/-/merge_requests/10025) (included in Wine Staging 11.2)
-  - [ ] [mshtml: Add XMLSerializer implementation](https://gitlab.winehq.org/wine/wine/-/merge_requests/10063) (split off code from above PR)
+  - [x] [mshtml: Add XMLSerializer implementation](https://gitlab.winehq.org/wine/wine/-/merge_requests/10063) (split off code from above PR, merged now and will be released in Wine Devel 11.3)
 
 ## Winetricks upstream PRs
 
 - [ ] [w_set_app_winver: Fix issue with app names starting with "n" (#2466)](https://github.com/Winetricks/winetricks/pull/2466)
 - [ ] [webview2: New verb (#2467)](https://github.com/Winetricks/winetricks/pull/2467)
-- [ ] TODO: Open draft `dobbe_cc` verb PR (perhaps after SetThreadpoolTimerEx is implemented?  Would avoid a ton of the weirdness needed to make things semi-functional)
+- [ ] TODO: Open draft `adobe_cc` verb PR (perhaps after SetThreadpoolTimerEx is implemented?  Would avoid a ton of the weirdness needed to make things semi-functional)
