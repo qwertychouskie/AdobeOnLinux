@@ -8,7 +8,7 @@ A commmunity effort to run the Adobe Creative Cloud suite of applications on Lin
 ## Basic installation steps
 
 1. Install Wine Staging 11.2 or later
-3. Download the Winetricks script from this repository
+2. Download the [`winetricks`](winetricks) script from this repository
 4. Run with: `WINEPREFIX=~/.local/share/wineprefixes/adobe-creative-cloud /path/to/downloaded/winetricks -q adobe_cc`
 
 ## Known issues
