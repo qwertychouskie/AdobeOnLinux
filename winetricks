@@ -15331,8 +15331,8 @@ w_metadata adobe_cc apps \
     title="Adobe Creative Cloud" \
     publisher="Adobe" \
     year="2024" \
-    media="manual_download" \
-    file1="Creative_Cloud_Set-Up.exe" \
+    media="download" \
+    file1="Creative_Cloud_Set-Up_747d.exe" \
     installed_exe1="${W_PROGRAMS_X86_WIN}/Adobe/Adobe Creative Cloud/ACC/Creative Cloud.exe" \
     homepage="https://creativecloud.adobe.com/apps/download/creative-cloud"
 
@@ -15340,7 +15340,7 @@ load_adobe_cc()
 {
     w_package_unsupported_win32
 
-    w_download_manual https://creativecloud.adobe.com/apps/download/creative-cloud Creative_Cloud_Set-Up.exe
+    w_download "https://prod-rel-ffc-ccm.oobesaas.adobe.com/adobe-ffc-external/core/v1/wam/download?sapCode=KCCC&productName=Creative%20Cloud&os=win&guid=5ea24033-117e-4bd3-bfef-e5820f3b7133?sapCode=KCCC&fileName=Creative%20Cloud_Set-Up_747d&wamFeature=nuj-live&environment=prod&api_key=CCHomeWeb1" 13538829e52ccd0c0ae558c9d4cd12356f838ea5ee99cc84fc049be384bf5eb5 Creative_Cloud_Set-Up_747d.exe
 
     if w_workaround_wine_bug 48363 "Installing WebView2 so installer window displays"; then
         w_call webview2
