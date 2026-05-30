@@ -15347,19 +15347,21 @@ load_adobe_cc()
     fi
 
     w_call dxvk       # For better performance and compatibility in apps using the GPU
-    w_call msxml3     # FIXME: This results in a somewhat borked installation of msxml3, as the 64-bit version of msxml3r.dll is not installed.  This actually breaks Adobe Character Animator 2026.  However, msxml3 seems to *need to be somewhat borked* for the Creative Cloud app to work, as otherwise it constantly tries to call KERNEL32.dll.SetThreadpoolTimerEx and crashes. AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
     w_call powershell # Required by the "UXP Developer Tools" app
 
-    if w_workaround_wine_bug 57980 "Setting Windows 7 mode for Adobe executables"; then
-        w_set_app_winver "Adobe Crash Processor.exe" win7
-        w_set_app_winver "AdobeIPCBroker.exe" win7
-        w_set_app_winver "AdobeUpdateService.exe" win7
-        w_set_app_winver "CCXProcess.exe" win7
-        w_set_app_winver "Creative Cloud Helper.exe" win7
-        w_set_app_winver "Creative Cloud UI Helper.exe" win7
-        w_set_app_winver "Creative Cloud.exe" win7
-        w_set_app_winver "node.exe" win7
-    fi
+    # Should no longer be an issue with the SetThreadpoolTimerEx patch included in Wine Staging 11.10 (current only in Staging, not Devel).
+    # Comment these out for now.  (FIXME: Have Winetricks check the Wine version, and bail out early if it's too old)
+#    w_call msxml3     # FIXME: This results in a somewhat borked installation of msxml3, as the 64-bit version of msxml3r.dll is not installed.  This actually breaks Adobe Character Animator 2026.  However, msxml3 seems to *need to be somewhat borked* for the Creative Cloud app to work, as otherwise it constantly tries to call KERNEL32.dll.SetThreadpoolTimerEx and crashes. AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+#    if w_workaround_wine_bug 57980 "Setting Windows 7 mode for Adobe executables"; then
+#        w_set_app_winver "Adobe Crash Processor.exe" win7
+#        w_set_app_winver "AdobeIPCBroker.exe" win7
+#        w_set_app_winver "AdobeUpdateService.exe" win7
+#        w_set_app_winver "CCXProcess.exe" win7
+#        w_set_app_winver "Creative Cloud Helper.exe" win7
+#        w_set_app_winver "Creative Cloud UI Helper.exe" win7
+#        w_set_app_winver "Creative Cloud.exe" win7
+#        w_set_app_winver "node.exe" win7
+#    fi
 
     w_try_cd "${W_CACHE}/${W_PACKAGE}"
     w_try "${WINE}" "${file1}"
