@@ -7,17 +7,15 @@ A commmunity effort to run the Adobe Creative Cloud suite of applications on Lin
 
 ## Basic installation steps
 
-1. Install Wine Staging (11.2 or later)
+1. Install Wine Staging (11.10 or later)
 2. Download the [`winetricks`](winetricks) script from this repository
 4. Run with: `WINEPREFIX=~/.local/share/wineprefixes/adobe-creative-cloud /path/to/downloaded/winetricks -q adobe_cc`
 
 ## Known issues
 
-- Wine Devel contains some, but not all, of the patches from [@PhialsBasement](https://github.com/PhialsBasement).  Please use Wine Staging (11.2 or later), which includes all of the patches.
+- Wine Devel contains some, but not all, of the patches needed.  Please use Wine Staging (11.10 or later), which includes all of the current patches.
 - Mouse cursor is invisible in initial installer window: https://bugs.winehq.org/show_bug.cgi?id=58922
 - Sometimes you need to open the Creative Cloud application twice for it to launch without crashing/closing
-- The installation script installes a partially-broken native msxml3.  The partially-brokenness is actually needed for the Creative Cloud app to launch without hitting https://bugs.winehq.org/show_bug.cgi?id=57980 but will cause some Creative Cloud applications to fail to launch/operate correctly.
-  - A workaround is to launch the Creative Cloud app, then once it loads, run `WINEPREFIX=~/.local/share/wineprefixes/adobe-creative-cloud winecfg` and set `msxml3` to `builtin`.  Horrible hack, but until the wine bug is fixed, I don't know of a better way.
 
 ## Individual app test results
 
@@ -26,7 +24,7 @@ A commmunity effort to run the Adobe Creative Cloud suite of applications on Lin
 | UXP Developer Tools                         | ✅ Yes                    | ✅ Yes, appears to run as expected |
 | Character Animator 2026                     | ✅ Yes                    | ❌ No, [Crashes on launch](https://bugs.winehq.org/show_bug.cgi?id=59311) |
 | [Express Photos](EXPRESS_PHOTOS.md)         | ⚠️ No, but has workaround | ❌ No, requires WinUI support, see linked page for details |
-| Audition 2020                               | ⚠️ Untested               | ❌ No, [Crashes on launch](https://bugs.winehq.org/show_bug.cgi?id=50814), but [an applicable PR was merged](https://gitlab.winehq.org/wine/wine/-/merge_requests/9961) and should be in the Wine Devel 11.3 release |
+| Audition 2020                               | ⚠️ Untested               | ⚠️ Needs re-testing, now that https://bugs.winehq.org/show_bug.cgi?id=50814 is closed |
 
 More testing needed/welcomed!
 
@@ -35,7 +33,16 @@ More testing needed/welcomed!
 - [x] [mshtml: Update element event handlers when the corresponding attribute value changes](https://gitlab.winehq.org/wine/wine/-/merge_requests/9976) (released in Wine Devel 11.2)
 - [x] [jscript: Fix DISPATCH_METHOD | DISPATCH_PROPERTYGET in ES5+ modes](https://gitlab.winehq.org/wine/wine/-/merge_requests/10004) (released in Wine Devel 11.2)
 - [ ] [mshtml/msxml3: Add XMLSerializer, embedded XML declaration handling](https://gitlab.winehq.org/wine/wine/-/merge_requests/10025) (included in Wine Staging 11.2)
-  - [x] [mshtml: Add XMLSerializer implementation](https://gitlab.winehq.org/wine/wine/-/merge_requests/10063) (split off code from above PR, merged now and will be released in Wine Devel 11.3)
+  - [x] [mshtml: Add XMLSerializer implementation](https://gitlab.winehq.org/wine/wine/-/merge_requests/10063) (split off code from above PR, merged and released in Wine Devel 11.3)
+- [ ] [Human-written patches](https://github.com/sander110419/lightroom-cc-on-linux/issues/2#issuecomment-4476933248) inspired by the vibe-coded patches from https://github.com/sander110419/lightroom-cc-on-linux:
+  - [x] https://gitlab.winehq.org/wine/wine/-/merge_requests/10940
+  - [x] https://gitlab.winehq.org/wine/wine/-/merge_requests/10941
+  - [x] https://gitlab.winehq.org/wine/wine/-/merge_requests/10957
+  - [x] https://gitlab.winehq.org/wine/wine/-/merge_requests/10958
+  - [x] https://gitlab.winehq.org/wine/wine/-/merge_requests/10969
+  - [x] https://gitlab.winehq.org/wine/wine/-/merge_requests/10970
+  - [x] https://gitlab.winehq.org/wine/wine/-/merge_requests/10991
+- [ ] [Implement SetThreadpoolTimerEx](https://bugs.winehq.org/show_bug.cgi?id=57980#c14) (Included in Wine Staging 11.10)
 
 ## Winetricks upstream PRs
 
